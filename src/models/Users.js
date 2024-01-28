@@ -8,7 +8,6 @@ module.exports = (sequelize) => {
       UserID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
     },
     FirstName: {
       type: DataTypes.STRING,

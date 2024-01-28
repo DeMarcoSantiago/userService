@@ -6,7 +6,7 @@ const UserRouter = require("./UserRoute");
 
 const router = Router();
 
-router.use("/user", UserRouter)
+router.use("/", UserRouter)
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 

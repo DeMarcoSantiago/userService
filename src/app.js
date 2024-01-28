@@ -14,7 +14,8 @@ server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
-// C O R S = P A I N
+// C O R S = P A I Ns
+
 
 server.use('/', routes);
 

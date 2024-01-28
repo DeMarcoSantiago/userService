@@ -1,15 +1,37 @@
 const { User } = require('../db');
 
 // Controller functions for user actions
-const getAllUsers = async () => {
+const getAllUsers = async (req, res, next) => {
+  try {
+    // Your implementation to fetch all users
     const users = await User.findAll();
-    return users;
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
 };
 
 
-const getUserById = async (idUser) => {
-    const usersById = await users.findByPk(iduser);
-    return usersById;
+
+const getUserByName = async (req, res, next) => {
+  try {
+    const { firstName, lastName } = req.params;
+    const user = await User.findOne({
+      where: {
+        FirstName: firstName,
+        LastName: lastName,
+      },
+    });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Handle the found user as needed
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
 };
 
 
@@ -21,7 +43,7 @@ const deleteUser = async (req, res) => { /* ... */ };
 
 module.exports = {
   getAllUsers,
-  getUserById,
+  getUserByName,
   createUser,
   updateUser,
   deleteUser,
