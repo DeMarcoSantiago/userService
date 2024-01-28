@@ -5,9 +5,10 @@ module.exports = (sequelize) => {
   const User = sequelize.define(
     'User', 
     {
-      UserID: {
+      ID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     FirstName: {
       type: DataTypes.STRING,

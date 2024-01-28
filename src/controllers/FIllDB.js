@@ -11,7 +11,7 @@ const fillDB = async () => {
         defaults: {
           LastName: user.LastName,
           Email: user.Email,
-          UserID: user.UserID,
+          ID: user.ID,
           LanguagePreference: user.LanguagePreference,
         },
       });
