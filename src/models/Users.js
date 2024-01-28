@@ -1,11 +1,9 @@
-
+// Example User model definition
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const User = sequelize.define(
-    'User', 
-    {
-      ID: {
+  const User = sequelize.define('User', {
+    ID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -24,10 +22,10 @@ module.exports = (sequelize) => {
       unique: true,
     },
     LanguagePreference: {
-      type: DataTypes.STRING, // Adjust the data type based on your needs
-      allowNull: true, // Change to false if language preference is always required
+      type: DataTypes.STRING,
+      allowNull: true,
     },
+  }, { timestamps: false });
 
-  },
-  { timestamps: false });
+  return User;
 };

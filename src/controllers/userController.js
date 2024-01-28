@@ -33,7 +33,25 @@ const getUserByName = async (req, res, next) => {
 };
 
 
-const createUser = async (req, res) => { /* ... */ };
+const createUser = async (req, res) => {
+  console.log('Request Body:', req.body); // Log the request body
+
+  const { FirstName, LastName, Email, LanguagePreference } = req.body;
+
+  try {
+    const newUser = await User.create({
+      FirstName,
+      LastName,
+      Email,
+      LanguagePreference,
+    });
+
+    res.status(201).json(newUser);
+  } catch (error) {
+    console.error('Error creating user:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
 
 const updateUser = async (req, res) => { /* ... */ };
